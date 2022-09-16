@@ -1,0 +1,6 @@
+{{ $style := resources.Get .css | resources.PostCSS (dict "enableSourceMap" true) }}
+{{ if hugo.IsProduction }}
+{{ $style = $style | minify | fingerprint | resources.PostProcess }}
+{{ end }}
+
+<link rel="stylesheet" href='{{ $style.RelPermalink | absLangURL }}' integrity="{{ $style.Data.Integrity }}">

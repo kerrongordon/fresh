@@ -1,0 +1,9 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Fresh'
+
+themesDir = 'themes'
+theme = 'furn'
+
+[build]
+    writeStats = true
