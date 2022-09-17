@@ -1,12 +1,8 @@
 {{ define "main" }}
-    
 
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-		
-		
-	
 		<!--welcome-hero start -->
 		<header id="home" class="welcome-hero">
 
@@ -233,7 +229,10 @@
 				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 				                    <i class="fa fa-bars"></i>
 				                </button>
-				                <a class="navbar-brand" href="index.html">sine<span>mkt</span>.</a>
+				                {{/*  <a class="navbar-brand" href="index.html">sine<span>mkt</span>.</a>  */}}
+                                <div class="navbar-brand">
+                                    <img src="images/logo.png" alt="" srcset="">
+                                </div>
 
 				            </div><!--/.navbar-header-->
 				            <!-- End Header Navigation -->
