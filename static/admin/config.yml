@@ -17,7 +17,7 @@ collections:
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: 'In Stock', name: 'inStock', widget: 'boolean', default: true }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: ['products'] }
+      - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: 'products' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Short Description', name: 'shortDescription', widget: 'string' }
       - { label: 'Product Description', name: 'body', widget: 'markdown' }
