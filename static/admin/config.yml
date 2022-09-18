@@ -13,6 +13,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: 'Product ID', name: 'productID', widget: 'uuid' }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: ['products'] }
@@ -22,10 +23,15 @@ collections:
       - { label: 'Product Description', name: 'body', widget: 'markdown' }
       - { label: 'Price', name: 'price', widget: 'string' }
       - { label: 'Discount Price', name: 'discountPrice', widget: 'string' }
-      - { label: 'Product ID', name: 'productID', widget: 'uuid' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image', allow_multiple: false }
-      - { label: 'Option Lable', name: 'optionLable', widget: 'string' }
-      - { label: 'Options', name: 'options', widget: 'list' }
+      - { label: 'Options Lable', name: 'optionLable', widget: 'string' }
+      - { label: 'Options', name: 'options', widget: 'list',
+          fields:
+            [
+              {label: "Option Title", name: "optionTitle", widget: "string"},
+              {label: "Value", name: "optionValue", widget: "string"}
+            ]
+        }
       - { label: 'Images', name: 'images', widget: 'list',
           fields:
             [
