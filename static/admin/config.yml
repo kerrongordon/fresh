@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+local_backend: true
+media_folder: assets/images
+public_folder: /images
+collections:
+  - name: 'products'
+    label: 'Products'
+    folder: 'content/products'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: 'products' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'In Stock', name: 'inStock', widget: 'boolean', default: true }
+      - { label: 'Short Description', name: 'shortDescription', widget: 'text' }
+      - { label: 'Product Description', name: 'body', widget: 'markdown' }
+      - { label: 'Price', name: 'price', widget: 'number', value_type: float }
+      - { label: 'Discount Price', name: 'discountPrice', widget: 'number', value_type: float }
+      - { label: 'Product ID', name: 'productID', widget: 'date' }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', allow_multiple: false }
+      - { label: 'Option Lable', name: 'optionLable', widget: 'text' }
+      - { label: 'Options', name: 'options', widget: 'list', allow_add: true }
+      - { label: 'Images', name: 'images', widget: 'list',
+          fields:
+            [
+              {label: "title", name: "title", widget: "string"},
+              {label: "Item", name: "image", widget: "image"}
+            ]
+        }
