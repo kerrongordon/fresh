@@ -131,6 +131,15 @@ nav.navbar.bootsnav {
 
 .navbar-brand {
     width: 130px;
+    transition: all ease-in-out 0.3s;
+}
+
+.wrap-sticky nav.navbar.bootsnav .navbar-brand {
+    margin-top: 20px;
+}
+
+.wrap-sticky nav.navbar.bootsnav.sticked .navbar-brand {
+    margin-top: 0px;
 }
 
 /*.nav li*/
@@ -965,4 +974,3 @@ span.feature-review {margin-left: 10px;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
-/*========================Thank you=================

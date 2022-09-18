@@ -8,7 +8,29 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
         ...(els.ids || []),
       ];
     },
-    safelist: []
+    safelist: [
+      'fadeInDown',
+      'fadeInUp',
+      'fadeOutUp',
+      'animated',
+      'on',
+      'next',
+      'left',
+      'right',
+      'sticked',
+      'play',
+      'stop',
+      'client',
+      'in',
+      'navbar-right',
+      'navbar-left',
+      'menu-center',
+      'col-half',
+      'storage-name',
+      'wrap-sticky',
+      'brand-center',
+      'megamenu-content'
+    ]
   });
 
   module.exports = {

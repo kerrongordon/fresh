@@ -1,0 +1,7 @@
+mainmenu:
+  - title: 'Home'
+    url: '/'
+  - title: 'Products'
+    url: 'products'
+  - title: 'Contact'
+    url: 'contact'

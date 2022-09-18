@@ -1,9 +1,12 @@
-baseURL = 'http://example.org/'
+baseURL = ''
 languageCode = 'en-us'
 title = 'Fresh'
 
 themesDir = 'themes'
 theme = 'furn'
+
+[taxonomies]
+    category = 'products'
 
 [build]
     writeStats = true

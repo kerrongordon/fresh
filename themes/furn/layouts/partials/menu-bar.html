@@ -1,0 +1,7 @@
+<div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+    <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+        {{ range site.Data.menu.mainmenu }}
+            <li class=""><a href="{{ .url | absLangURL }}">{{ .title }}</a></li>
+        {{ end }}
+    </ul>
+</div>
