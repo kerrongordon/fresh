@@ -15,16 +15,16 @@ collections:
     fields:
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: 'products' }
+      - { label: 'Category', name: 'categories', widget: 'select', options: ['products'], default: ['products'] }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'In Stock', name: 'inStock', widget: 'boolean', default: true }
-      - { label: 'Short Description', name: 'shortDescription', widget: 'text' }
+      - { label: 'Short Description', name: 'shortDescription', widget: 'string' }
       - { label: 'Product Description', name: 'body', widget: 'markdown' }
-      - { label: 'Price', name: 'price', widget: 'number', value_type: float }
-      - { label: 'Discount Price', name: 'discountPrice', widget: 'number', value_type: float }
-      - { label: 'Product ID', name: 'productID', widget: 'date' }
+      - { label: 'Price', name: 'price', widget: 'string' }
+      - { label: 'Discount Price', name: 'discountPrice', widget: 'string' }
+      - { label: 'Product ID', name: 'productID', widget: 'uuid' }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image', allow_multiple: false }
-      - { label: 'Option Lable', name: 'optionLable', widget: 'text' }
+      - { label: 'Option Lable', name: 'optionLable', widget: 'string' }
       - { label: 'Options', name: 'options', widget: 'list', allow_add: true }
       - { label: 'Images', name: 'images', widget: 'list',
           fields:
