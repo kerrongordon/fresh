@@ -1,13 +1,13 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "F Change"
 categories: ["products"]
-date: {{ .Date }}
+date: 2022-09-18T10:20:55-04:00
 description: "Product Description"
 shortDescription: "Short Description"
-price: "0.00"
+price: "50.00"
 discountPrice: ""
-productID: {{ now.UnixNano }}
-thumbnail: ""
+productID: 1663510855769084000
+thumbnail: "images/slider/slider2.png"
 optionLable: ""
 options:
     - ""

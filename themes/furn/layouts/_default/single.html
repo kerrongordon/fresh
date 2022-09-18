@@ -1,3 +1,100 @@
 {{ define "main" }}
-    
+<section>
+    <div class="container">
+        <div class="welcome-hero-content">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="single-welcome-hero-post">
+                    <div class="row">
+                        {{ range .Params.images }}
+                        <div class="mx-auto">
+                            <img src='{{ . | absLangURL }}' alt="{{ . }}">
+                        </div>
+                        {{ end }}
+                    </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="single-welcome-hero-post" style="background-color: rgba(106,119,129,0.1);">
+                        <div class="welcome-hero-img" >
+                            <img src='{{ .Params.thumbnail | absLangURL }}' alt="{{ .Title }}">
+                            {{ if .Params.discountPrice }}
+                            <div class="sale bg-2">
+                                <p>On Sale</p>
+                            </div>
+                                {{ if eq .Params.inStock false }}
+                                <div class="sale bg-1">
+                                    <p>Out Of Stock</p>
+                                </div>
+                                {{ end }}
+                            {{ else }}
+                            {{ if eq .Params.inStock false }}
+                            <div class="sale bg-1">
+                                <p>Out Of Stock</p>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                        <!--/.welcome-hero-txt-->
+                    </div>
+                    <!--/.single-welcome-hero-->
+                </div>
+                <!--/.col-->
+                <div class="col-sm-5">
+                    <div class="single-welcome-hero-post">
+                        <div class="welcome-hero-txt">
+                            <h2>{{ .Title }}</h2>
+                            <hr>
+                            <p>{{ .Params.shortDescription }}</p>
+
+                            {{ if .Params.optionLable }}
+                            <div class="shopOptions">
+                            <label for="cars">Choose a {{ .Params.optionLable }}:</label>
+                            <select name="cars" id="cars" class="form-control">
+                                {{ range .Params.options }}
+                                    <option value="{{ . }}">{{ . }}</option>
+                                {{ end }}
+                            </select>
+                            </div>
+                            {{ end }}
+
+                            <div class="packages-price">
+                                <p>
+                                    {{ site.Params.currencySymbol }} {{ if .Params.discountPrice }} {{ .Params.discountPrice }} {{ else }} {{ .Params.price }} {{ end }}
+                                    {{ if .Params.discountPrice }} <del>{{ site.Params.currencySymbol }} {{ .Params.price }}</del> {{ end }}
+                                </p>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                <div class="shopOptions">
+                                    <select name="cars" id="cars" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                                <button class="btn-cart welcome-add-cart welcome-add-cart-sm" onclick="window.location.href='#'" {{ if eq .Params.inStock false }} disabled {{ end }}>
+                                    <span class="lnr lnr-plus-circle"></span>
+                                    add <span>to</span> cart
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/.welcome-hero-txt-->
+                    </div>
+                    <!--/.single-welcome-hero-->
+                </div>
+            </div>
+            <!--/.row-->
+        </div>
+        <!--/.welcome-hero-content-->
+    </div><!-- /.container-->
+</section>
+
+
 {{ end }}

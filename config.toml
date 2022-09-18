@@ -1,12 +1,15 @@
-baseURL = ''
-languageCode = 'en-us'
-title = 'Fresh'
+baseURL = ""
+languageCode = "en-us"
+title = "Fresh"
 
-themesDir = 'themes'
-theme = 'furn'
+themesDir = "themes"
+theme = "furn"
+
+[params]
+    currencySymbol = "$"
 
 [taxonomies]
-    category = 'products'
+    category = "products"
 
 [build]
     writeStats = true

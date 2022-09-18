@@ -104,4 +104,11 @@ $(document).ready(function(){
 			$(this).parents(".single-cart-list").fadeOut();
 		});
 
+
+		$(".mx-auto").click(function(){
+			const img = $(this).find('img').attr('src');
+			const bigImg = $('.welcome-hero-img').find('img');
+			return bigImg.attr('src', img);
+		});
+
 });
