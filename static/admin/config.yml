@@ -22,7 +22,7 @@ collections:
       - { label: 'Short Description', name: 'shortDescription', widget: 'string' }
       - { label: 'Product Description', name: 'body', widget: 'markdown' }
       - { label: 'Price', name: 'price', widget: 'string' }
-      - { label: 'Discount Price', name: 'discountPrice', widget: 'string' }
+      - { label: 'Discount Price', name: 'discountPrice', widget: 'string', required: false }
       - { label: 'Featured Image', name: 'thumbnail', widget: 'image', allow_multiple: false }
       - { label: 'Options Lable', name: 'optionLable', widget: 'string' }
       - { label: 'Options', name: 'options', widget: 'list',
