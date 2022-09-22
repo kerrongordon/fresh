@@ -4,49 +4,10 @@
         <div class="new-arrivals-content">
             <div class="row">
                 {{ range (where site.RegularPages "Type" "products")  }}
-                <div class="col-md-3 col-sm-4">
-                    <div class="single-new-arrival">
-                        <a href="{{ .Permalink }}">
-                        <div class="single-new-arrival-bg">
-                            {{ with resources.Get .Params.thumbnail }}
-                            {{ with .Resize ("200x png") }}
-                            <img src='{{ .RelPermalink  }}' alt="{{ .Title }}">
-                            {{ end }}
-                            {{ end }}
-                            <div class="single-new-arrival-bg-overlay"></div>
-                            {{ if .Params.discountPrice }}
-                            <div class="sale bg-2">
-                                <p>Sale</p>
-                            </div>
-                                {{ if eq .Params.inStock false }}
-                                <div class="sale bg-1">
-                                    <p>Out Of Stock</p>
-                                </div>
-                                {{ end }}
-                            {{ else }}
-                            {{ if eq .Params.inStock false }}
-                            <div class="sale bg-1">
-                                <p>Out Of Stock</p>
-                            </div>
-                            {{ end }}
-                            {{ end }}
-
-                            <div class="new-arrival-cart">
-                                <p>
-                                    {{ if .Params.inStock }}<a href="#"><span class="lnr lnr-cart"></span> add <span>to </span> cart</a>{{ else }}<a href="#"></a>{{ end }}
-                                </p>
-                            </div>
-                        </div>
-                        </a>
-                        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-                        <p class="arrival-product-price">{{ site.Params.currencySymbol }} {{ if .Params.discountPrice }} {{ .Params.discountPrice }} {{ else }} {{ .Params.price }} {{ end }}</p>
-                    </div>
-                </div>
+                {{ partial "components/list-item.html" . }}
                 {{ end }}
-
             </div>
         </div>
-    </div><!--/.container-->
-
-</section><!--/.new-arrivals-->
+    </div>
+</section>
 {{ end }}

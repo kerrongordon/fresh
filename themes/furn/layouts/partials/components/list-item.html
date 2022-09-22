@@ -1,0 +1,41 @@
+<div class="col-md-3 col-sm-4">
+    <div class="single-new-arrival">
+        <a href="{{ .RelPermalink }}">
+        <div class="single-new-arrival-bg">
+            {{ with resources.Get .Params.thumbnail }}
+            {{ with .Resize ("200x png") }}
+            <img src='{{ .RelPermalink  }}' alt="{{ .Title }}">
+            {{ end }}
+            {{ end }}
+            <div class="single-new-arrival-bg-overlay"></div>
+            {{ if .Params.discountPrice }}
+            <div class="sale bg-2">
+                <p>Sale</p>
+            </div>
+                {{ if eq .Params.inStock false }}
+                <div class="sale bg-1">
+                    <p>Out Of Stock</p>
+                </div>
+                {{ end }}
+            {{ else }}
+            {{ if eq .Params.inStock false }}
+            <div class="sale bg-1">
+                <p>Out Of Stock</p>
+            </div>
+            {{ end }}
+            {{ end }}
+
+            <div class="new-arrival-cart">
+                <p>
+                    {{ if .Params.inStock }}<a href="#"><span class="lnr lnr-cart"></span> add <span>to </span> cart</a>{{ else }}<a href="#"></a>{{ end }}
+                </p>
+            </div>
+        </div>
+        </a>
+        <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+        <p class="arrival-product-price packages-price">
+            {{ site.Params.currencySymbol }} {{ if .Params.discountPrice }} {{ .Params.discountPrice }} {{ else }} {{ .Params.price }} {{ end }}
+            {{ if .Params.discountPrice }} <del>{{ site.Params.currencySymbol }} {{ .Params.price }}</del> {{ end }}
+        </p>
+    </div>
+</div>

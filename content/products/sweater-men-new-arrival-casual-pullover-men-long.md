@@ -24,6 +24,10 @@ images:
     image: /images/big.png
   - title: image two
     image: /images/work3.jpg
+tags:
+  - food
+  - meet
+  - pork
 ---
 Made of pure cotton Off-White is a streetwear-inspired collection that continues to break away from the conventions of divstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.
 
