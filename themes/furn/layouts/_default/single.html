@@ -1,26 +1,29 @@
 {{ define "main" }}
+
+
+
 <section>
     <div class="container">
         <div class="welcome-hero-content">
             <div class="row">
                 <div class="col col-sm-1">
                     <div class="single-welcome-hero-post">
-                    <div class="row">
-                        {{ range .Params.images }}
-                        <div class="mx-auto">
-                            {{ with resources.Get .image }}
-                            {{ with .Resize ("800x png") }}
-                            <img src='{{ .RelPermalink | absLangURL }}' alt="{{ . }}">
-                            {{ end }}
+                        <div class="row">
+                            {{ range .Params.images }}
+                            <div class="mx-auto">
+                                {{ with resources.Get .image }}
+                                {{ with .Resize ("800x png") }}
+                                <img src='{{ .RelPermalink | absLangURL }}' alt="{{ . }}">
+                                {{ end }}
+                                {{ end }}
+                            </div>
                             {{ end }}
                         </div>
-                        {{ end }}
-                    </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="single-welcome-hero-post" style="background-color: rgba(106,119,129,0.1);">
-                        <div class="welcome-hero-img" >
+                        <div class="welcome-hero-img">
                             {{ with resources.Get .Params.thumbnail }}
                             {{ with .Resize ("800x png") }}
                             <img src='{{ .RelPermalink }}' alt="{{ .Title }}">
@@ -30,11 +33,11 @@
                             <div class="sale bg-2">
                                 <p>On Sale</p>
                             </div>
-                                {{ if eq .Params.inStock false }}
-                                <div class="sale bg-1">
-                                    <p>Out Of Stock</p>
-                                </div>
-                                {{ end }}
+                            {{ if eq .Params.inStock false }}
+                            <div class="sale bg-1">
+                                <p>Out Of Stock</p>
+                            </div>
+                            {{ end }}
                             {{ else }}
                             {{ if eq .Params.inStock false }}
                             <div class="sale bg-1">
@@ -57,39 +60,43 @@
 
                             {{ if .Params.optionLable }}
                             <div class="shopOptions">
-                            <label for="cars">{{ .Params.optionLable }}:</label>
-                            <select name="cars" id="cars" class="form-control">
-                                {{ range .Params.options }}
+                                <label for="cars">{{ .Params.optionLable }}:</label>
+                                <select name="cars" id="cars" class="form-control">
+                                    {{ range .Params.options }}
                                     <option value="{{ .optionValue }}">{{ .optionTitle }}</option>
-                                {{ end }}
-                            </select>
+                                    {{ end }}
+                                </select>
                             </div>
                             {{ end }}
 
                             <div class="packages-price">
                                 <p>
-                                    {{ site.Params.currencySymbol }} {{ if .Params.discountPrice }} {{ .Params.discountPrice }} {{ else }} {{ .Params.price }} {{ end }}
-                                    {{ if .Params.discountPrice }} <del>{{ site.Params.currencySymbol }} {{ .Params.price }}</del> {{ end }}
+                                    {{ site.Params.currencySymbol }} {{ if .Params.discountPrice }} {{
+                                    .Params.discountPrice }} {{ else }} {{ .Params.price }} {{ end }}
+                                    {{ if .Params.discountPrice }} <del>{{ site.Params.currencySymbol }} {{
+                                        .Params.price }}</del> {{ end }}
                                 </p>
                             </div>
 
 
                             <div class="row">
                                 <div class="col-sm-3">
-                                <div class="shopOptions">
-                                    <select name="cars" id="cars" class="form-control">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                </div>
+                                    <div class="shopOptions">
+                                        <select name="cars" id="cars" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-sm-6">
-                                <button class="btn-cart welcome-add-cart welcome-add-cart-sm" onclick="window.location.href='#'" {{ if eq .Params.inStock false }} disabled {{ end }}>
-                                    <span class="lnr lnr-plus-circle"></span>
-                                    add <span>to</span> cart
-                                </button>
+                                    <button class="btn-cart welcome-add-cart welcome-add-cart-sm"
+                                        onclick="window.location.href='#'" {{ if eq .Params.inStock false }} disabled {{
+                                        end }}>
+                                        <span class="lnr lnr-plus-circle"></span>
+                                        add <span>to</span> cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +112,39 @@
 </section>
 
 {{ partial "related.html" . }}
+
+
+<div class="container">
+<div class="row">
+    <form>
+        <div class="form-group hide">
+            <input id="id" name="id" type="text" class="form-control" value="{{ .Params.productID }}">
+        </div>
+        <div class="form-group">
+            <label for="name" class="control-label">Your Name</label>
+            <input id="name" name="name" type="text" required="required" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="rating" class="control-label">Your rating</label>
+            <select id="rating" name="rating" required="required" class="select form-control">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="review" class="control-label">Review</label>
+            <textarea id="review" name="review" cols="40" rows="5" required="required" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+</div>
+
 
 
 {{ end }}
