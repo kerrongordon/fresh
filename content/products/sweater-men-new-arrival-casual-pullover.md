@@ -10,7 +10,7 @@ shortDescription: Made of pure cotton Off-White is a streetwear-inspired
   fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers.
 price: "815.00"
 discountPrice: "799.99"
-thumbnail: /images/big.png
+thumbnail: /images/fast-food-png-41613.png
 optionLable: Color
 options:
   - optionTitle: Red
@@ -21,9 +21,9 @@ options:
     optionValue: green
 images:
   - title: image one
-    image: /images/big.png
+    image: /images/food-png-2953-1-.png
   - title: image two
-    image: /images/work3.jpg
+    image: /images/banner-img.png
 tags:
   - food
   - meet
