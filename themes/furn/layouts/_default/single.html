@@ -8,8 +8,11 @@
                     <div class="row">
                         {{ range .Params.images }}
                         <div class="mx-auto">
-                            {{/*  TODO  */}}
-                            {{/*  <img src='{{ . | absLangURL }}' alt="{{ . }}">  */}}
+                            {{ with resources.Get .image }}
+                            {{ with .Resize ("800x png") }}
+                            <img src='{{ .RelPermalink | absLangURL }}' alt="{{ . }}">
+                            {{ end }}
+                            {{ end }}
                         </div>
                         {{ end }}
                     </div>
@@ -18,7 +21,11 @@
                 <div class="col-sm-6">
                     <div class="single-welcome-hero-post" style="background-color: rgba(106,119,129,0.1);">
                         <div class="welcome-hero-img" >
-                            <img src='{{ .Params.thumbnail | absLangURL }}' alt="{{ .Title }}">
+                            {{ with resources.Get .Params.thumbnail }}
+                            {{ with .Resize ("800x png") }}
+                            <img src='{{ .RelPermalink }}' alt="{{ .Title }}">
+                            {{ end }}
+                            {{ end }}
                             {{ if .Params.discountPrice }}
                             <div class="sale bg-2">
                                 <p>On Sale</p>
@@ -50,10 +57,10 @@
 
                             {{ if .Params.optionLable }}
                             <div class="shopOptions">
-                            <label for="cars">Choose a {{ .Params.optionLable }}:</label>
+                            <label for="cars">{{ .Params.optionLable }}:</label>
                             <select name="cars" id="cars" class="form-control">
                                 {{ range .Params.options }}
-                                    <option value="{{ . }}">{{ . }}</option>
+                                    <option value="{{ .optionValue }}">{{ .optionTitle }}</option>
                                 {{ end }}
                             </select>
                             </div>
@@ -96,6 +103,8 @@
         <!--/.welcome-hero-content-->
     </div><!-- /.container-->
 </section>
+
+{{ partial "related.html" . }}
 
 
 {{ end }}

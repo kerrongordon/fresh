@@ -8,7 +8,11 @@
                     <div class="single-new-arrival">
                         <a href="{{ .Permalink }}">
                         <div class="single-new-arrival-bg">
-                            <img src='{{ .Params.thumbnail | absLangURL }}' alt="{{ .Title }}">
+                            {{ with resources.Get .Params.thumbnail }}
+                            {{ with .Resize ("200x png") }}
+                            <img src='{{ .RelPermalink  }}' alt="{{ .Title }}">
+                            {{ end }}
+                            {{ end }}
                             <div class="single-new-arrival-bg-overlay"></div>
                             {{ if .Params.discountPrice }}
                             <div class="sale bg-2">

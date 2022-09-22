@@ -10,6 +10,8 @@ theme = "furn"
 
 [taxonomies]
     category = "products"
+    tag = 'tags'
 
 [build]
     writeStats = true
+
