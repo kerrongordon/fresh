@@ -105,10 +105,32 @@ $(document).ready(function(){
 		});
 
 
-		$(".mx-auto").click(function(){
-			const img = $(this).find('img').attr('src');
-			const bigImg = $('.welcome-hero-img').find('img');
-			return bigImg.attr('src', img);
+		$(".product-image").click(function() {
+			const thumb = $(".product-thumb");
+			const alt = $(this).attr('alt');
+			const miniImage = $(this).attr('data-mini');
+			const largeImage = $(this).attr('data-large');
+
+			thumb.attr('alt', alt);
+			thumb.attr('src', miniImage);
+			thumb.attr('data-mini', miniImage);
+			thumb.attr('data-large', largeImage);
 		});
+
+		const modal = document.getElementById("myModal");
+		const modalImg = document.getElementById("img01");
+		const captionText = document.getElementById("caption");
+
+		$(".product-thumb").click(function() {
+			const thumb = $(this)
+			modal.style.display = "block";
+			modalImg.src = $(this).attr('data-large');
+			captionText.innerHTML = this.alt;
+		});
+
+		const span = document.getElementsByClassName("close")[0];
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
 
 });
