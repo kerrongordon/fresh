@@ -2,6 +2,7 @@
 productID: WbeOP60NIaPi2e9-jq8QY
 draft: false
 inStock: true
+featured: true
 title: Sweater Men New Arrival Casual Pullover Men Long Sleeve 19
 categories: products
 date: 2022-09-19T23:56:08.618Z
