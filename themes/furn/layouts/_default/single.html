@@ -33,6 +33,15 @@
                         {{ end }}
                     </div>
                     <div class="col-sm-12 col-lg-2 col-lg-pull-10">
+                        {{ $pageTitle := .Page.Title }}
+                        {{ with resources.Get .Params.thumbnail }}
+                        {{ $smaillImage := .Resize ("90x png") }}
+                        {{ $miniImage := .Resize ("800x png") }}
+                        {{ $largeImage := .Resize ("1200x png") }}
+                        <img src='{{ $smaillImage.RelPermalink | absLangURL }}' alt="{{ $pageTitle }}"
+                            data-mini="{{ $miniImage.RelPermalink | absLangURL }}"
+                            data-large="{{ $largeImage.RelPermalink | absLangURL }}" class="product-image">
+                        {{ end }}
                         {{ range .Params.images }}
                         {{ $title := .title }}
                         {{ with resources.Get .image }}
@@ -75,12 +84,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="shopOptions">
-                                <select name="cars" id="cars" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
+                                <input type="number" name="quantity" id="quantity" min="1" max="5" value="1" class="form-control">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -96,6 +100,18 @@
         </div>
     </div>
 </section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="#">Description</a></li>
+                <li role="presentation"><a href="#">Reviews</a></li>
+              </ul>
+        </div>
+    </div>
+</section>
+
 {{ partial "related.html" . }}
 
 <div id="myModal" class="modal">

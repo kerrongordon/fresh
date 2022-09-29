@@ -104,6 +104,7 @@ button {
 html,
 body {
   height: 100%;
+  overflow: auto;
 }
 
 [placeholder]:focus::-webkit-input-placeholder {
